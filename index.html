@@ -22,6 +22,104 @@
     <title>Weather Dashboard</title>
   </head>
   <body>
+    <h1>Weather Dashboard</h1>
+    <main class="d-flex">
+      <aside>
+        <form>
+          <h2>Search city</h2>
+          <input placeholder="Search"/>
+          <button>Search</button>
+        </form>
+        <hr />
+
+            <!--city searched lists here-->
+            <ul class="list-group" id="city-list">
+              <li class="list-group-item">Tokio</li>
+              <li class="list-group-item">Athens</li>
+              <li class="list-group-item">Birmingham</li>
+              <li class="list-group-item">Madrid</li>
+              <li class="list-group-item">New York</li>
+            </ul>
+          </div>
+
+      </aside>
+        <section>
+            <div class="card-body bg-white border mb-2">
+                <h2 class="card-title">
+                        city name
+                        <img src="https://openweathermap.org/img/w/${currentData.iconCode}.png" />
+                </h2>
+                <p class="card-text">Temp: 25&deg;F</p>
+                <p class="card-text">Wind: 44 MPH</p>
+                <p class="card-text">Humidity: 34%</p>
+                <p class="card-text">
+                        UV index: <span class="btn btn-primary">12</span>
+                </p>
+            </div>
+        
+            <div class="bg-white border">
+                <h3 class="p-3 text-center">5-Day Forecast:</h3>
+                <div class="m-3 d-flex flex-wrap justify-content-around"id="">
+                    <div class="card m-1 forecast-card">
+                        <div class="card-body">
+                            <h5 class="card-title">${each.date}</h5>
+                            <p class="card-text"><img src="https://openweathermap.org/img/w/${each.iconCode}.png"/></p>
+                            <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+                            <p class="card-text">Wind: ${each.wind} MPH</p>
+                            <p class="card-text">Humidity: ${each.humidity}</p>
+                        </div>
+                    </div>
+
+                    <div class="card m-1 forecast-card">
+                        <div class="card-body">
+                            <h5 class="card-title">${each.date}</h5>
+                            <p class="card-text"><img src="https://openweathermap.org/img/w/${each.iconCode}.png"/></p>
+                            <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+                            <p class="card-text">Wind: ${each.wind} MPH</p>
+                            <p class="card-text">Humidity: ${each.humidity}</p>
+                        </div>
+                    </div>
+
+                    <div class="card m-1 forecast-card">
+                        <div class="card-body">
+                            <h5 class="card-title">${each.date}</h5>
+                            <p class="card-text"><img src="https://openweathermap.org/img/w/${each.iconCode}.png"/></p>
+                            <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+                            <p class="card-text">Wind: ${each.wind} MPH</p>
+                            <p class="card-text">Humidity: ${each.humidity}</p>
+                        </div>
+                    </div>
+
+                    <div class="card m-1 forecast-card">
+                        <div class="card-body">
+                            <h5 class="card-title">${each.date}</h5>
+                            <p class="card-text"><img src="https://openweathermap.org/img/w/${each.iconCode}.png"/></p>
+                            <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+                            <p class="card-text">Wind: ${each.wind} MPH</p>
+                            <p class="card-text">Humidity: ${each.humidity}</p>
+                        </div>
+                    </div>
+
+                    <div class="card m-1 forecast-card">
+                        <div class="card-body">
+                            <h5 class="card-title">${each.date}</h5>
+                            <p class="card-text"><img src="https://openweathermap.org/img/w/${each.iconCode}.png"/></p>
+                            <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+                            <p class="card-text">Wind: ${each.wind} MPH</p>
+                            <p class="card-text">Humidity: ${each.humidity}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
       integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
