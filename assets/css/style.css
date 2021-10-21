@@ -37,7 +37,6 @@
 }
 
 .main {
-  border: 1px black solid;
   display: flex;
   flex-wrap: wrap;
   background-image: linear-gradient(
@@ -47,7 +46,6 @@
 }
 
 .aside {
-  border: 1px black solid;
   margin: 1rem 0rem 1rem 1rem;
   flex: 1;
 }
@@ -93,7 +91,6 @@
 }
 
 .dashboard-container {
-  border: 1px black solid;
   margin: 1rem;
   display: flex;
   flex-direction: column;
