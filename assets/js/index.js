@@ -49,8 +49,73 @@ const mockData = {
 
 const dashboardContainer = $("#dashboard-container");
 
+const API_KEY = "82c607cdbf31b750f2970e7092997d99";
+
 //get Data from API
-const getWeatherData = () => {};
+const getWeatherData = async (cityName) => {
+  const currentDataUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
+
+  const currentDataResponse = await fetch(currentDataUrl);
+  const currentData = await response.json();
+
+  const lat = data.coord.lat;
+  const lon = data.coord.lon;
+  const name = data.name;
+
+  const forecastDataUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
+
+  const forecastDataResponse = await fetch(forecastDataUrl);
+  const forecastData = await forecastDataResponse.json();
+
+  return {
+    current: {
+      name: name,
+      temperature: forecastData.current.temp,
+      wind: forecastData.current.wind,
+      humidity: forecastData.current.humidity,
+      uvi: forecastData.current.uvi,
+      date: "(3/30/2021)",
+      iconCode: "04n",
+    },
+    forecast: [
+      {
+        date: "(3/30/2021)",
+        temperature: 123.45,
+        wind: 111.22,
+        humidity: 33,
+        iconCode: "04n",
+      },
+      {
+        date: "(3/30/2021)",
+        temperature: 123.45,
+        wind: 111.22,
+        humidity: 33,
+        iconCode: "04n",
+      },
+      {
+        date: "(3/30/2021)",
+        temperature: 123.45,
+        wind: 111.22,
+        humidity: 33,
+        iconCode: "04n",
+      },
+      {
+        date: "(3/30/2021)",
+        temperature: 123.45,
+        wind: 111.22,
+        humidity: 33,
+        iconCode: "04n",
+      },
+      {
+        date: "(3/30/2021)",
+        temperature: 123.45,
+        wind: 111.22,
+        humidity: 33,
+        iconCode: "04n",
+      },
+    ],
+  };
+};
 
 //construct current day weather card
 const renderCurrentWeatherCard = (currentData) => {
@@ -114,5 +179,7 @@ const renderWeatherCards = (weatherData) => {
 
   renderForecastWeatherCards(weatherData.forecast);
 };
+
+getWeatherData("london");
 
 renderWeatherCards(mockData);
