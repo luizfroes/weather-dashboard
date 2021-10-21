@@ -21,6 +21,7 @@
   <body>
     <!--heading here -->
     <header class="header">
+        <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-weather-korea-justicon-lineal-color-justicon.png"/>
       <h1>Weather Dashboard</h1>
     </header>
 
@@ -30,10 +31,8 @@
         <form class="search-form">
           <h2>Search city</h2>
           <input placeholder="Search" />
-          <button>Search</button>
+          <button class="search-btn" id="search-btn">Search</button>
         </form>
-
-        <hr />
 
         <!--Searched cities list -->
         <ul class="city-list" id="city-list">
@@ -46,91 +45,118 @@
       </aside>
       <section class="dashboard-container">
         <div class="current-city-container">
-          <h2 class="card-title">
+          <h2>
             city name
-            <img
-              src="https://openweathermap.org/img/w/${currentData.iconCode}.png"
-            />
           </h2>
-          <p class="card-text">Temp: 25&deg;F</p>
-          <p class="card-text">Wind: 44 MPH</p>
-          <p class="card-text">Humidity: 34%</p>
-          <p class="card-text">
-            UV index: <span class="uv-btn">12</span>
-          </p>
+          <div class="current-city-body">
+              <div class="current-city-content">
+                <p>Temp: 25&deg;F</p>
+                <p>Wind: 44 MPH</p>
+                <p>Humidity: 34%</p>
+                <p>
+                  UV index: <span class="uv-btn">12</span>
+                </p>
+              </div>
+              <div class="current-city-img">
+                <img
+                src="https://openweathermap.org/img/w/${currentData.iconCode}.png"
+              />
+              </div>
+          </div>
         </div>
 
         <div class="forecast-container">
           <h3 class="forecast-title">5-Day Forecast:</h3>
-          <div class="m-3 d-flex flex-wrap justify-content-around" id="">
+          <div class="forecast-card-container">
+            
             <div class="forecast-card">
-              <div class="card-body">
-                <h5 class="card-title">${each.date}</h5>
-                <p class="card-text">
-                  <img
+                <h5 class="forecast-card-title">${each.date}</h5>
+              <div class="forecast-card-body">
+                <div class="forecast-card-content">
+                    <p class="card-text">
+                    </p>
+                    <p class="card-text">Temp: 67&deg;F</p>
+                    <p class="card-text">Wind: 87 MPH</p>
+                    <p class="card-text">Humidity: 76%</p>
+                </div>
+                <div class="forecast-card-img">
+                    <img
                     src="https://openweathermap.org/img/w/${each.iconCode}.png"
                   />
-                </p>
-                <p class="card-text">Temp: ${each.temperature}&deg;F</p>
-                <p class="card-text">Wind: ${each.wind} MPH</p>
-                <p class="card-text">Humidity: ${each.humidity}</p>
-              </div>
+                </div>
+            </div>
+            </div>
+
+              <div class="forecast-card">
+                <h5 class="forecast-card-title">${each.date}</h5>
+              <div class="forecast-card-body">
+                <div class="forecast-card-content">
+                    <p class="card-text">
+                    </p>
+                    <p class="card-text">Temp: 67&deg;F</p>
+                    <p class="card-text">Wind: 87 MPH</p>
+                    <p class="card-text">Humidity: 76%</p>
+                </div>
+                <div class="forecast-card-img">
+                    <img
+                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
+                  />
+                </div>
+            </div>
+            </div>
+
+              <div class="forecast-card">
+                <h5 class="forecast-card-title">${each.date}</h5>
+              <div class="forecast-card-body">
+                <div class="forecast-card-content">
+                    <p class="card-text">
+                    </p>
+                    <p class="card-text">Temp: 67&deg;F</p>
+                    <p class="card-text">Wind: 87 MPH</p>
+                    <p class="card-text">Humidity: 76%</p>
+                </div>
+                <div class="forecast-card-img">
+                    <img
+                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
+                  />
+                </div>
+            </div>
+            </div>
+
+              <div class="forecast-card">
+                <h5 class="forecast-card-title">${each.date}</h5>
+              <div class="forecast-card-body">
+                <div class="forecast-card-content">
+                    <p class="card-text">
+                    </p>
+                    <p class="card-text">Temp: 67&deg;F</p>
+                    <p class="card-text">Wind: 87 MPH</p>
+                    <p class="card-text">Humidity: 76%</p>
+                </div>
+                <div class="forecast-card-img">
+                    <img
+                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
+                  />
+                </div>
+            </div>
             </div>
 
             <div class="forecast-card">
-              <div class="card-body">
-                <h5 class="card-title">${each.date}</h5>
-                <p class="card-text">
-                  <img
+                <h5 class="forecast-card-title">${each.date}</h5>
+              <div class="forecast-card-body">
+                <div class="forecast-card-content">
+                    <p class="card-text">
+                    </p>
+                    <p class="card-text">Temp: 67&deg;F</p>
+                    <p class="card-text">Wind: 87 MPH</p>
+                    <p class="card-text">Humidity: 76%</p>
+                </div>
+                <div class="forecast-card-img">
+                    <img
                     src="https://openweathermap.org/img/w/${each.iconCode}.png"
                   />
-                </p>
-                <p class="card-text">Temp: ${each.temperature}&deg;F</p>
-                <p class="card-text">Wind: ${each.wind} MPH</p>
-                <p class="card-text">Humidity: ${each.humidity}</p>
-              </div>
+                </div>
             </div>
-
-            <div class="forecast-card">
-              <div class="card-body">
-                <h5 class="card-title">${each.date}</h5>
-                <p class="card-text">
-                  <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </p>
-                <p class="card-text">Temp: ${each.temperature}&deg;F</p>
-                <p class="card-text">Wind: ${each.wind} MPH</p>
-                <p class="card-text">Humidity: ${each.humidity}</p>
-              </div>
-            </div>
-
-            <div class="forecast-card">
-              <div class="card-body">
-                <h5 class="card-title">${each.date}</h5>
-                <p class="card-text">
-                  <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </p>
-                <p class="card-text">Temp: ${each.temperature}&deg;F</p>
-                <p class="card-text">Wind: ${each.wind} MPH</p>
-                <p class="card-text">Humidity: ${each.humidity}</p>
-              </div>
-            </div>
-
-            <div class="forecast-card">
-              <div class="card-body">
-                <h5 class="card-title">${each.date}</h5>
-                <p class="card-text">
-                  <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </p>
-                <p class="card-text">Temp: ${each.temperature}&deg;F</p>
-                <p class="card-text">Wind: ${each.wind} MPH</p>
-                <p class="card-text">Humidity: ${each.humidity}</p>
-              </div>
             </div>
         </div>
       </section>
