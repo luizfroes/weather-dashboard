@@ -1,52 +1,3 @@
-const mockData = {
-  current: {
-    name: "London",
-    temperature: 123.45,
-    wind: 111.22,
-    humidity: 33,
-    uvi: 2.5,
-    date: "(3/30/2021)",
-    iconCode: "04n",
-  },
-  forecast: [
-    {
-      date: "(3/30/2021)",
-      temperature: 123.45,
-      wind: 111.22,
-      humidity: 33,
-      iconCode: "04n",
-    },
-    {
-      date: "(3/30/2021)",
-      temperature: 123.45,
-      wind: 111.22,
-      humidity: 33,
-      iconCode: "04n",
-    },
-    {
-      date: "(3/30/2021)",
-      temperature: 123.45,
-      wind: 111.22,
-      humidity: 33,
-      iconCode: "04n",
-    },
-    {
-      date: "(3/30/2021)",
-      temperature: 123.45,
-      wind: 111.22,
-      humidity: 33,
-      iconCode: "04n",
-    },
-    {
-      date: "(3/30/2021)",
-      temperature: 123.45,
-      wind: 111.22,
-      humidity: 33,
-      iconCode: "04n",
-    },
-  ],
-};
-
 const dashboardContainer = $("#dashboard-container");
 
 const API_KEY = "82c607cdbf31b750f2970e7092997d99";
@@ -56,11 +7,11 @@ const getWeatherData = async (cityName) => {
   const currentDataUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
 
   const currentDataResponse = await fetch(currentDataUrl);
-  const currentData = await response.json();
+  const currentData = await currentDataResponse.json();
 
-  const lat = data.coord.lat;
-  const lon = data.coord.lon;
-  const name = data.name;
+  const lat = currentData.coord.lat;
+  const lon = currentData.coord.lon;
+  const name = currentData.name;
 
   const forecastDataUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
 
@@ -180,6 +131,11 @@ const renderWeatherCards = (weatherData) => {
   renderForecastWeatherCards(weatherData.forecast);
 };
 
-getWeatherData("london");
+const onLoad = async () => {
+  //get data from API
+  const weatherData = await getWeatherData("birmingham");
 
-renderWeatherCards(mockData);
+  renderWeatherCards(weatherData);
+};
+
+$(document).ready(onLoad);
