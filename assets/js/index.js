@@ -49,8 +49,11 @@ const mockData = {
 
 const dashboardContainer = $("#dashboard-container");
 
+//get Data from API
+const getWeatherData = () => {};
+
 //construct current day weather card
-renderCurrentWeatherCard = (currentData) => {
+const renderCurrentWeatherCard = (currentData) => {
   const currentWeatherCard = ` <div class="current-city-container">
   <h2>
     ${currentData.name} ${currentData.date}
@@ -75,7 +78,8 @@ renderCurrentWeatherCard = (currentData) => {
   dashboardContainer.append(currentWeatherCard);
 };
 
-renderForecastWeatherCards = (forecastData) => {
+//construct forecast cards
+const renderForecastWeatherCards = (forecastData) => {
   constructForecastCard = (each) => {
     return `<div class="forecast-card">
         <h5 class="forecast-card-title">${each.date}</h5>
@@ -105,7 +109,7 @@ renderForecastWeatherCards = (forecastData) => {
   dashboardContainer.append(forecastCardsContainer);
 };
 
-renderWeatherCards = (weatherData) => {
+const renderWeatherCards = (weatherData) => {
   renderCurrentWeatherCard(weatherData.current);
 
   renderForecastWeatherCards(weatherData.forecast);
