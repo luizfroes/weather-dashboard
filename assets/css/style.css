@@ -6,13 +6,27 @@
 }
 
 * {
-  margin: 0px;
-  box-sizing: content-box;
-  margin-block-start: 0px;
-  margin-block-end: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  background-image: linear-gradient(
+    var(--prussian-blue),
+    var(--light-cornflower-blue)
+  );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+body {
   color: var(--honeydew);
   font-family: "Roboto Condensed", sans-serif;
-  padding-inline-start: 0;
+  margin: 0px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .header {
@@ -25,6 +39,7 @@
 .header img {
   object-fit: cover;
   flex-grow: 1;
+  margin-left: 1rem;
 }
 
 .header h1 {
@@ -39,14 +54,9 @@
 .main {
   display: flex;
   flex-wrap: wrap;
-  background-image: linear-gradient(
-    var(--blue-green),
-    var(--light-cornflower-blue)
-  );
 }
 
 .aside {
-  margin: 1rem 0rem 1rem 1rem;
   flex: 1;
 }
 
@@ -60,6 +70,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  padding-bottom: 2rem;
+  margin: 1rem 0rem 0rem 1rem;
 }
 
 .search-form h2 {
@@ -80,7 +92,16 @@
 
 .city-list {
   list-style-type: none;
-  margin-top: 1rem;
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+  padding-inline-start: 0px;
+  border-top: 0.5rem solid var(--honeydew);
+  border-bottom: 0.5rem solid var(--honeydew);
+  padding: 1rem 0rem;
+}
+
+.city-list li {
+  margin-left: 1rem;
 }
 
 .city-list li,
@@ -91,14 +112,14 @@
 }
 
 .dashboard-container {
-  margin: 1rem;
   display: flex;
   flex-direction: column;
   flex: 2;
 }
 
-.current-city-container {
-  margin-bottom: 1rem;
+.current-city-container,
+.forecast-container {
+  margin: 1rem 0rem 1rem 2rem;
 }
 
 .current-city-container h2,
@@ -128,6 +149,7 @@
 .current-city-body {
   display: flex;
   justify-content: space-between;
+  margin-right: 1rem;
 }
 
 .current-city-content,
@@ -152,8 +174,8 @@
 /* search button properties */
 .search-btn {
   box-shadow: inset 0px 1px 0px 0px #ffffff;
-  background: linear-gradient(to bottom, #ffffff 5%, #f6f6f6 100%);
-  background-color: #ffffff;
+  background: linear-gradient(to bottom, var(--honeydew) 5%, #f6f6f6 100%);
+  background-color: var(--honeydew);
   border-radius: 6px;
   border: 1px solid #dcdcdc;
   display: inline-block;
@@ -187,7 +209,7 @@
 
   .header h1 {
     padding: none;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
   }
 
   .main {
@@ -195,16 +217,27 @@
   }
 
   .aside {
-    margin: 1rem;
     display: flex;
     flex-direction: column;
+  }
+
+  .search-form {
+    margin: 1rem;
   }
 
   .search-form h2 {
     font-size: 1.2rem;
   }
 
-  .dashboard-container {
-    margin: 0rem 1rem 1rem 1rem;
+  .current-city-container {
+    margin: 1rem 0rem 0rem 0rem;
+  }
+
+  .forecast-container {
+    margin: 1rem 0rem;
+  }
+
+  .current-city-body {
+    margin: 0rem 1rem;
   }
 }
