@@ -49,6 +49,7 @@ const mockData = {
 
 const dashboardContainer = $("#dashboard-container");
 
+//construct current day weather card
 renderCurrentWeatherCard = (currentData) => {
   const currentWeatherCard = ` <div class="current-city-container">
   <h2>
@@ -74,8 +75,40 @@ renderCurrentWeatherCard = (currentData) => {
   dashboardContainer.append(currentWeatherCard);
 };
 
+renderForecastWeatherCards = (forecastData) => {
+  constructForecastCard = (each) => {
+    return `<div class="forecast-card">
+        <h5 class="forecast-card-title">${each.date}</h5>
+        <div class="forecast-card-body">
+            <div class="forecast-card-content">
+                <p class="card-text">Temp: ${each.temperature}&deg;F</p>
+                <p class="card-text">Wind: ${each.wind} MPH</p>
+                <p class="card-text">Humidity: ${each.humidity}%</p>
+            </div>
+            <div class="forecast-card-img">
+                <img
+                src="https://openweathermap.org/img/w/${each.iconCode}.png"
+            />
+            </div>
+        </div>
+    </div>`;
+  };
+
+  const forecastCards = forecastData.map(constructForecastCard).join("");
+
+  const forecastCardsContainer = ` <div class="forecast-container">
+        <h3 class="forecast-title">5-Day Forecast:</h3>
+        <div class="forecast-card-container"> ${forecastCards}
+        </div>
+    </div>`;
+
+  dashboardContainer.append(forecastCardsContainer);
+};
+
 renderWeatherCards = (weatherData) => {
   renderCurrentWeatherCard(weatherData.current);
+
+  renderForecastWeatherCards(weatherData.forecast);
 };
 
 renderWeatherCards(mockData);

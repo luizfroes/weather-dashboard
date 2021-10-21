@@ -4,9 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
@@ -15,13 +18,19 @@
       referrerpolicy="no-referrer"
     />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="icon" type="image/png" href="//img.icons8.com/plasticine/100/000000/apple-weather.png"/>
+    <link
+      rel="icon"
+      type="image/png"
+      href="//img.icons8.com/plasticine/100/000000/apple-weather.png"
+    />
     <title>Weather Dashboard</title>
   </head>
   <body>
     <!--heading here -->
     <header class="header">
-        <img src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-weather-korea-justicon-lineal-color-justicon.png"/>
+      <img
+        src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-weather-korea-justicon-lineal-color-justicon.png"
+      />
       <h1>Weather Dashboard</h1>
     </header>
 
@@ -43,103 +52,7 @@
           <li class="list-group-item">New York</li>
         </ul>
       </aside>
-      <section class="dashboard-container" id="dashboard-container">
-
-        <div class="forecast-container">
-          <h3 class="forecast-title">5-Day Forecast:</h3>
-          <div class="forecast-card-container">
-            
-            <div class="forecast-card">
-                <h5 class="forecast-card-title">${each.date}</h5>
-              <div class="forecast-card-body">
-                <div class="forecast-card-content">
-                    <p class="card-text">
-                    </p>
-                    <p class="card-text">Temp: 67&deg;F</p>
-                    <p class="card-text">Wind: 87 MPH</p>
-                    <p class="card-text">Humidity: 76%</p>
-                </div>
-                <div class="forecast-card-img">
-                    <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </div>
-            </div>
-            </div>
-
-              <div class="forecast-card">
-                <h5 class="forecast-card-title">${each.date}</h5>
-              <div class="forecast-card-body">
-                <div class="forecast-card-content">
-                    <p class="card-text">
-                    </p>
-                    <p class="card-text">Temp: 67&deg;F</p>
-                    <p class="card-text">Wind: 87 MPH</p>
-                    <p class="card-text">Humidity: 76%</p>
-                </div>
-                <div class="forecast-card-img">
-                    <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </div>
-            </div>
-            </div>
-
-              <div class="forecast-card">
-                <h5 class="forecast-card-title">${each.date}</h5>
-              <div class="forecast-card-body">
-                <div class="forecast-card-content">
-                    <p class="card-text">
-                    </p>
-                    <p class="card-text">Temp: 67&deg;F</p>
-                    <p class="card-text">Wind: 87 MPH</p>
-                    <p class="card-text">Humidity: 76%</p>
-                </div>
-                <div class="forecast-card-img">
-                    <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </div>
-            </div>
-            </div>
-
-              <div class="forecast-card">
-                <h5 class="forecast-card-title">${each.date}</h5>
-              <div class="forecast-card-body">
-                <div class="forecast-card-content">
-                    <p class="card-text">
-                    </p>
-                    <p class="card-text">Temp: 67&deg;F</p>
-                    <p class="card-text">Wind: 87 MPH</p>
-                    <p class="card-text">Humidity: 76%</p>
-                </div>
-                <div class="forecast-card-img">
-                    <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </div>
-            </div>
-            </div>
-
-            <div class="forecast-card">
-                <h5 class="forecast-card-title">${each.date}</h5>
-              <div class="forecast-card-body">
-                <div class="forecast-card-content">
-                    <p class="card-text">
-                    </p>
-                    <p class="card-text">Temp: 67&deg;F</p>
-                    <p class="card-text">Wind: 87 MPH</p>
-                    <p class="card-text">Humidity: 76%</p>
-                </div>
-                <div class="forecast-card-img">
-                    <img
-                    src="https://openweathermap.org/img/w/${each.iconCode}.png"
-                  />
-                </div>
-            </div>
-            </div>
-        </div>
-      </section>
+      <section class="dashboard-container" id="dashboard-container"></section>
     </main>
 
     <!--Moment.JS-->
