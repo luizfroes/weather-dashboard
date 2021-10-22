@@ -1,9 +1,10 @@
 const dashboardContainer = $("#dashboard-container");
+const cityList = $("#city-list");
 
 const API_KEY = "82c607cdbf31b750f2970e7092997d99";
 
-const getFormattedDate = (unixTimeStamp) => {
-  return moment.unix(unixTimeStamp).format("ddd DD/MM/YYY");
+const getFormattedDate = (unixTimeStamp, format = "ddd DD/MM/YYYY") => {
+  return moment.unix(unixTimeStamp).format(format);
 };
 
 const getCurrentData = (name, forecastData) => {
@@ -58,6 +59,26 @@ const getWeatherData = async (cityName) => {
     current: current,
     forecast: forecast,
   };
+};
+
+const getCitiesFromLs = () => {
+  //get cities from LS
+  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+  return cities;
+};
+
+const setCitiesInLs = (cityName) => {
+  //get cities from LS
+  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+
+  //if city does not exist
+  if (!cities.includes(cityName)) {
+    //insert cityName in cities
+    cities.push(cityName);
+
+    //set cities in LS
+    localStorage.setItem("recentCities", JSON.stringify(cities));
+  }
 };
 
 //construct current day weather card
@@ -125,20 +146,62 @@ const renderWeatherCards = (weatherData) => {
   renderForecastWeatherCards(weatherData.forecast);
 };
 
+const renderRecentCities = () => {
+  //get cities from LS
+  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+
+  cityList.empty();
+
+  const constructAndAppendCity = (city) => {
+    //construct each li item
+    const liEl = `<li class="list-group-item">${city}</li>`;
+
+    //append to the list
+    cityList.append(liEl);
+  };
+
+  cities.forEach(constructAndAppendCity);
+};
+
+const renderWeatherInfo = async (cityName) => {
+  //get data from API
+  const weatherData = await getWeatherData(cityName);
+
+  //remove the last city forecast
+  dashboardContainer.empty();
+
+  renderWeatherCards(weatherData);
+};
+
 const handleSearch = async (event) => {
   event.preventDefault();
 
   const cityName = $("#city-input").val();
 
   if (cityName) {
-    //get data from API
-    const weatherData = await getWeatherData(cityName);
+    renderWeatherInfo(cityName);
 
-    //remove the last city forecast
-    dashboardContainer.empty();
+    setCitiesInLs(cityName);
 
-    renderWeatherCards(weatherData);
+    renderRecentCities();
+  }
+};
+
+const handleReady = () => {
+  //render recent cities
+  renderRecentCities();
+
+  //get cities from LS
+  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+
+  //if there recent cities get info for the most recent city
+  if (cities.length) {
+    const cityName = cities.pop();
+
+    renderWeatherInfo(cityName);
   }
 };
 
 $("#search-form").on("submit", handleSearch);
+
+$(document).ready(handleReady);
