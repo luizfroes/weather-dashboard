@@ -135,6 +135,30 @@ body {
   font-size: 1.5rem;
 }
 
+.uvi-blue,
+.uvi-orange,
+.uvi-red,
+.uvi-yellow {
+  padding: 0.3rem;
+}
+
+.uvi-blue {
+  background-color: blue;
+}
+
+.uvi-yellow {
+  background-color: yellow;
+  color: black;
+}
+
+.uvi-orange {
+  background-color: orange;
+}
+
+.uvi-red {
+  background-color: red;
+}
+
 .forecast-container h3 {
   margin-bottom: 1rem;
 }

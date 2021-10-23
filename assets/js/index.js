@@ -81,6 +81,19 @@ const setCitiesInLs = (cityName) => {
   }
 };
 
+const getUVIClassName = (uvi) => {
+  //get uvi class name
+  if (uvi >= 0 && uvi < 3) {
+    return "uvi-blue";
+  } else if (uvi >= 3 && uvi < 5) {
+    return "uvi-yellow";
+  } else if (uvi >= 5 && uvi < 8) {
+    return "uvi-orange";
+  } else {
+    return "uvi-red";
+  }
+};
+
 //construct current day weather card
 const renderCurrentWeatherCard = (current) => {
   const currentWeatherCard = ` <div class="current-city-container">
@@ -94,7 +107,9 @@ const renderCurrentWeatherCard = (current) => {
         <p>Wind: ${current.wind} MPH</p>
         <p>Humidity: ${current.humidity}%</p>
         <p>
-          UV index: <span class="uv-btn">${current.uvi}</span>
+          UV index: <span class=${getUVIClassName(current.uvi)}>${
+    current.uvi
+  }</span>
         </p>
       </div>
       <div class="current-city-img">
