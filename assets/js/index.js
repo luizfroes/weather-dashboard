@@ -154,11 +154,26 @@ const renderRecentCities = () => {
 
   const constructAndAppendCity = (city) => {
     //construct each li item
-    const liEl = `<li class="list-group-item">${city}</li>`;
+    const liEl = `<li data-city=${city} class="list-group-item">${city}</li>`;
 
     //append to the list
     cityList.append(liEl);
   };
+
+  const handleClick = (event) => {
+    const target = $(event.target);
+
+    // if click is from li
+    if (target.is("li")) {
+      //get city data-name
+      const cityDataName = target.data("city");
+
+      //render weather inf with cityDataName
+      renderWeatherInfo(cityDataName);
+    }
+  };
+
+  cityList.on("click", handleClick);
 
   cities.forEach(constructAndAppendCity);
 };
