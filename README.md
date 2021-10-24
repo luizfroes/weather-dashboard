@@ -32,7 +32,7 @@ THEN all my search history is cleared.
 
 ## Deployed URL
 
-You can view the GitHub pages deployed application [here](https://luizfroes.github.io/work-day-scheduler)
+You can view the GitHub pages deployed application [here](https://luizfroes.github.io/weather-dashboard/)
 
 ## Technologies Used
 
