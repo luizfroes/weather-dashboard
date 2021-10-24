@@ -232,6 +232,17 @@ const handleReady = () => {
   }
 };
 
+const onClear = () => {
+  localStorage.clear();
+
+  $(cityList).empty();
+
+  $(dashboardContainer).empty();
+};
+
+// add a event listener click to clear all button
+$("#clear-btn").on("click", onClear);
+
 $("#search-form").on("submit", handleSearch);
 
 $(document).ready(handleReady);

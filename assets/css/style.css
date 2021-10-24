@@ -79,7 +79,8 @@ body {
   font-size: 1.5rem;
 }
 
-.search-btn {
+.search-btn,
+.clear-btn {
   max-width: 50%;
   align-self: center;
   margin-top: 0.5rem;
@@ -90,14 +91,21 @@ body {
   font-size: 1rem;
 }
 
+.city-list-container {
+  border-top: 0.5rem solid var(--honeydew);
+  border-bottom: 0.5rem solid var(--honeydew);
+  padding: 1rem 0rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0rem 0rem 0rem 1rem;
+}
+
 .city-list {
   list-style-type: none;
   margin-block-start: 0em;
   margin-block-end: 0em;
   padding-inline-start: 0px;
-  border-top: 0.5rem solid var(--honeydew);
-  border-bottom: 0.5rem solid var(--honeydew);
-  padding: 1rem 0rem;
 }
 
 .city-list li {
@@ -199,8 +207,9 @@ img {
   font-size: 1rem;
 }
 
-/* search button properties */
-.search-btn {
+/* search and clear button properties */
+.search-btn,
+.clear-btn {
   box-shadow: inset 0px 1px 0px 0px #ffffff;
   background: linear-gradient(to bottom, var(--honeydew) 5%, #f6f6f6 100%);
   background-color: var(--honeydew);
@@ -221,6 +230,16 @@ img {
   text-decoration: underline;
 }
 .search-btn:active {
+  position: relative;
+  top: 1px;
+}
+
+.clear-btn:hover {
+  background: linear-gradient(to bottom, #f6f6f6 5%, #ffffff 100%);
+  background-color: #f6f6f6;
+  text-decoration: underline;
+}
+.clear-btn:active {
   position: relative;
   top: 1px;
 }
