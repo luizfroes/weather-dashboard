@@ -135,6 +135,10 @@ body {
   font-size: 1.5rem;
 }
 
+img {
+  height: 5rem;
+}
+
 .uvi-blue,
 .uvi-orange,
 .uvi-red,
