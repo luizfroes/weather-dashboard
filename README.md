@@ -2,7 +2,7 @@
 
 A weather dashboard that will run in the browser and allow the user to find the weather conditions for any city he wants to. feature dynamically updated HTML and CSS.
 
-# The Work day Planner
+# The Weather Dashboard
 
 ## Description
 
