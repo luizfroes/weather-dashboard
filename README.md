@@ -45,6 +45,12 @@ You can view the GitHub pages deployed application [here](https://luizfroes.gith
 
 ## Screenshots
 
+### Wireframes
+
+![alt text](assets/images/weather-dashboard-main.png)
+
+![alt text](assets/images/weather-dashboard-cards.png)
+
 ### Final Website
 
 ![alt text](assets/images/weather-dashboard-1.png)
