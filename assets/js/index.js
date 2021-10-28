@@ -40,25 +40,30 @@ const getWeatherData = async (cityName) => {
   const currentDataUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_KEY}`;
 
   const currentDataResponse = await fetch(currentDataUrl);
-  const currentData = await currentDataResponse.json();
 
-  const lat = currentData.coord.lat;
-  const lon = currentData.coord.lon;
-  const name = currentData.name;
+  if (currentDataResponse.status === 200) {
+    const currentData = await currentDataResponse.json();
 
-  const forecastDataUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
+    setCitiesInLs(cityName);
 
-  const forecastDataResponse = await fetch(forecastDataUrl);
-  const forecastData = await forecastDataResponse.json();
+    const lat = currentData.coord.lat;
+    const lon = currentData.coord.lon;
+    const name = currentData.name;
 
-  const current = getCurrentData(name, forecastData);
+    const forecastDataUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=imperial`;
 
-  const forecast = getForecastData(forecastData);
+    const forecastDataResponse = await fetch(forecastDataUrl);
+    const forecastData = await forecastDataResponse.json();
 
-  return {
-    current: current,
-    forecast: forecast,
-  };
+    const current = getCurrentData(name, forecastData);
+
+    const forecast = getForecastData(forecastData);
+
+    return {
+      current: current,
+      forecast: forecast,
+    };
+  }
 };
 
 const getCitiesFromLs = () => {
@@ -92,6 +97,13 @@ const getUVIClassName = (uvi) => {
   } else {
     return "uvi-red";
   }
+};
+
+//Construct Alert Message
+const renderAlertCard = () => {
+  const currentAlertCard = `<p>Please enter a valid city name</p>`;
+
+  dashboardContainer.append(currentAlertCard);
 };
 
 //construct current day weather card
@@ -156,9 +168,13 @@ const renderForecastWeatherCards = (forecastData) => {
 };
 
 const renderWeatherCards = (weatherData) => {
-  renderCurrentWeatherCard(weatherData.current);
+  if (weatherData) {
+    renderCurrentWeatherCard(weatherData.current);
 
-  renderForecastWeatherCards(weatherData.forecast);
+    renderForecastWeatherCards(weatherData.forecast);
+  } else {
+    renderAlertCard();
+  }
 };
 
 const renderRecentCities = () => {
@@ -210,8 +226,6 @@ const handleSearch = async (event) => {
 
   if (cityName) {
     renderWeatherInfo(cityName);
-
-    setCitiesInLs(cityName);
 
     renderRecentCities();
   }
