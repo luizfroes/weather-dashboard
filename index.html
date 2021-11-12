@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="//img.icons8.com/plasticine/100/000000/apple-weather.png"
+    />
+    <title>Weather Dashboard</title>
+  </head>
+  <body>
+    <!--heading here -->
+    <header class="header">
+      <img
+        src="https://img.icons8.com/external-justicon-lineal-color-justicon/64/000000/external-weather-korea-justicon-lineal-color-justicon.png"
+      />
+      <h1>Weather Dashboard</h1>
+    </header>
+
+    <main class="main">
+      <div id="alert-container"></div>
+      <aside class="aside">
+        <!--Search Input -->
+        <form class="search-form" id="search-form">
+          <h2>Search City</h2>
+          <input placeholder="Type the name of the city here" id="city-input" />
+          <button class="search-btn" id="search-btn">Search</button>
+        </form>
+
+        <!--Searched cities list -->
+        <div class="city-list-container">
+          <ul class="city-list" id="city-list"></ul>
+          <button class="clear-btn" id="clear-btn">Clear All</button>
+        </div>
+      </aside>
+      <section class="dashboard-container" id="dashboard-container"></section>
+    </main>
+
+    <!--Moment.JS-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"
+      integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <!--jquery-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
