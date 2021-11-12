@@ -68,13 +68,12 @@ const getWeatherData = async (cityName) => {
 
 const getCitiesFromLs = () => {
   //get cities from LS
-  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
-  return cities;
+  return JSON.parse(localStorage.getItem("recentCities")) ?? [];
 };
 
 const setCitiesInLs = (cityName) => {
   //get cities from LS
-  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+  const cities = getCitiesFromLs();
 
   //if city does not exist
   if (!cities.includes(cityName)) {
@@ -101,9 +100,9 @@ const getUVIClassName = (uvi) => {
 
 //Construct Alert Message
 const renderAlertCard = () => {
-  const currentAlertCard = `<p>Please enter a valid city name</p>`;
+  const currentAlertCard = `<div class="alert-card"><p>Please enter a valid city name</p></div>`;
 
-  dashboardContainer.append(currentAlertCard);
+  $("#alert-container").append(currentAlertCard);
 };
 
 //construct current day weather card
@@ -137,7 +136,7 @@ const renderCurrentWeatherCard = (current) => {
 
 //construct forecast cards
 const renderForecastWeatherCards = (forecastData) => {
-  constructForecastCard = (each) => {
+  const constructForecastCard = (each) => {
     return `<div class="forecast-card">
         <h5 class="forecast-card-title">${each.date}</h5>
         <div class="forecast-card-body">
@@ -179,8 +178,7 @@ const renderWeatherCards = (weatherData) => {
 
 const renderRecentCities = () => {
   //get cities from LS
-  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
-
+  const cities = getCitiesFromLs();
   cityList.empty();
 
   const constructAndAppendCity = (city) => {
@@ -222,10 +220,12 @@ const renderWeatherInfo = async (cityName) => {
 const handleSearch = async (event) => {
   event.preventDefault();
 
+  $("#alert-container").empty();
+
   const cityName = $("#city-input").val();
 
   if (cityName) {
-    renderWeatherInfo(cityName);
+    await renderWeatherInfo(cityName);
 
     renderRecentCities();
   }
@@ -236,7 +236,7 @@ const handleReady = () => {
   renderRecentCities();
 
   //get cities from LS
-  const cities = JSON.parse(localStorage.getItem("recentCities")) ?? [];
+  const cities = getCitiesFromLs();
 
   //if there recent cities get info for the most recent city
   if (cities.length) {
